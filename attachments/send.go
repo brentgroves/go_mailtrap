@@ -25,7 +25,7 @@ func New(subject string, body string, to []*mail.Address) *Attachments {
 func (m Attachments) Send() {
 
 	// Open the file
-	file, err := os.Open("test.txt")
+	file, err := os.Open("test.xlsx")
 	if err != nil {
 		log.Fatalf("Failed to open file: %v", err)
 	}
@@ -57,9 +57,9 @@ func (m Attachments) Send() {
     "html": "<p>Check out the attached <strong>file</strong>.</p>",
     "attachments": [
         {
-          "filename": "test.txt",
+          "filename": "test.xlsx",
           "content": "` + encodedFileData + `",
-          "type": "application/txt",
+          "type": "application/xlsx",
           "disposition": "attachment"
         }
     ]
