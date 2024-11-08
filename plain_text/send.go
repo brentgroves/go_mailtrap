@@ -8,20 +8,19 @@ import (
 	"net/http"
 	"net/mail"
 	"time"
+
+	mt "github.com/brentgroves/go_mailtrap"
 )
 
-// type EmailSender interface {
-// 	Send()
-// 	// Send(subject, body string, to ...*mail.Address)
-// }
+type PlainText mt.Email
 
-type PlainTextEmail struct {
-	Subject string
-	Body    string
-	To      []*mail.Address
+func New(subject string, body string, to []*mail.Address) *PlainText {
+	pt := mt.New(subject, body, to)
+	return &PlainText{pt.Subject, pt.Body, pt.To}
+
 }
 
-func (m PlainTextEmail) Send() {
+func (m PlainText) Send() {
 
 	// token := "<secret_token>"
 	httpHost := "https://send.api.mailtrap.io/api/send"

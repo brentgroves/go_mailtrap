@@ -4,7 +4,7 @@ import (
 	"net/mail"
 	"testing"
 
-	mt "github.com/brentgroves/go_mailtrap/plain_text"
+	pt "github.com/brentgroves/go_mailtrap/plain_text"
 )
 
 // type Email struct {
@@ -13,18 +13,16 @@ import (
 // 	lastTo      []*mail.Address
 // }
 
+var subject = "test"
+var body = "this is a test"
 var emailAddress = []*mail.Address{&mail.Address{Name: "Brent Groves", Address: "gmail.com"}}
-var emailTests = mt.PlainTextEmail{
-	Subject: "test",
-	Body:    "this is a test",
-	To:      emailAddress,
-}
+var plainTextEmailTest = pt.New(subject, body, emailAddress)
 
 // func (t *Email) Send(subject, body string, to ...*mail.Address)
-func TestSendEmail(t *testing.T) {
+func TestSendPlainTextEmail(t *testing.T) {
 
 	// email := mt.Email{"test", "this is a test", emailAddress}
-	emailTests.Send()
+	plainTextEmailTest.Send()
 	// if sender.lastSubject != "Welcome" {
 	// 	t.Error("Subject line was wrong")
 	// }
