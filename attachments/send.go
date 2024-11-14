@@ -42,17 +42,28 @@ func (m Attachments) Send() {
 
 	// token := "<secret_token>"
 	httpHost := "https://send.api.mailtrap.io/api/send"
-	// 	message := []byte(`{"from":{"email":"hello@demomailtrap.com"},
-	// "to":[{"email":"brent.groves@gmail.com"}],
-	// "subject":"Test",
-	// "text":"this is a test"}`)
 
+	// Demo domain user
+	// message := []byte(`{
+	// 	"from": { "email": "hello@demomailtrap.com" },
+	// 	"to": [
+	// 		{ "email": "brent.groves@gmail.com" }
+	// 	],
+
+	// Repsys.dev Domain User to gmail
+	// message := []byte(`{
+	// "from": { "email": "brent@repsys.dev" },
+	// "to": [
+	//     { "email": "brent.groves@gmail.com" }
+	// ],
+
+	// Repsys.dev Domain User to linamar.com
 	message := []byte(`{
-    "from": { "email": "hello@demomailtrap.com" },
+    "from": { "email": "brent@repsys.dev" },
     "to": [
-        { "email": "brent.groves@gmail.com" }
+        { "email": "brent.groves@linamar.com" }
     ],
-    "subject": "Attachment Test",
+	"subject": "Attachment Test",
     "text": "Attachment Test.",
     "html": "<p>Check out the attached <strong>file</strong>.</p>",
     "attachments": [

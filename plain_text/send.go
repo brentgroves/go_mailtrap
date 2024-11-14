@@ -23,7 +23,6 @@ func New(subject string, body string, to []*mail.Address) *PlainText {
 func (m PlainText) Send() {
 
 	// token := "<secret_token>"
-	token := "b789446fb5f5a018106ebee66ce5daec"
 	httpHost := "https://send.api.mailtrap.io/api/send"
 
 	// Demo Domain user
