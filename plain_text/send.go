@@ -23,9 +23,22 @@ func New(subject string, body string, to []*mail.Address) *PlainText {
 func (m PlainText) Send() {
 
 	// token := "<secret_token>"
+	token := "b789446fb5f5a018106ebee66ce5daec"
 	httpHost := "https://send.api.mailtrap.io/api/send"
-	message := []byte(`{"from":{"email":"hello@demomailtrap.com"},
-"to":[{"email":"brent.groves@gmail.com"}],
+
+	// Demo Domain user
+	// 	message := []byte(`{"from":{"email":"hello@demomailtrap.com"},
+	// "to":[{"email":"brent.groves@gmail.com"}],
+
+	// Repsys.dev Domain User to gmail
+	// 	message := []byte(`{"from":{"email":"brent@repsys.dev"},
+	// "to":[{"email":"brent.groves@gmail.com"}],
+	// "subject":"Test",
+	// "text":"this is a test"}`)
+
+	// Repsys.dev Domain User to linamar user
+	message := []byte(`{"from":{"email":"brent@repsys.dev"},
+"to":[{"email":"brent.groves@linamar.com"}],
 "subject":"Test",
 "text":"this is a test"}`)
 
